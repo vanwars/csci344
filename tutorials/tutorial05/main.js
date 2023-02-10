@@ -69,7 +69,6 @@ class CoolArray extends Array {
         }
         return copy;
     }
-    
 }
 
 function doubleNumber(num) {
@@ -81,7 +80,8 @@ function squareNumber(num) {
 
 const testArray = new CoolArray(1, 2, 4, 7, 9, 11);
 console.log(testArray.length);
-console.log(testArray.mapChase());
+console.log(testArray.mapChase(doubleNumber));
+console.log(testArray.mapChase(squareNumber));
 
 
 
