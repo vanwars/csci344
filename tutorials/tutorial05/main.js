@@ -61,13 +61,17 @@ const dataToHTML = course => {
 
 class CoolArray extends Array {
 
-    mapChase(functionToApplyToEachItemOfTheArray) {
+    mapChase(functionToApplyToEachItemOfTheArrayLater) {
         const copy = [];
         for (const item of this) {
-            const result = functionToApplyToEachItemOfTheArray(item);
+            const result = functionToApplyToEachItemOfTheArrayLater(item);
             copy.push(result);
         }
         return copy;
+    }
+
+    sayHiToHaley() {
+        console.log('Hey Haley!');
     }
 }
 
@@ -82,6 +86,7 @@ const testArray = new CoolArray(1, 2, 4, 7, 9, 11);
 console.log(testArray.length);
 console.log(testArray.mapChase(doubleNumber));
 console.log(testArray.mapChase(squareNumber));
+testArray.sayHiToHaley();
 
 
 
