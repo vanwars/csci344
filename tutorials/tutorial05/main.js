@@ -37,8 +37,12 @@ const filterClassFull = course => {
 
 // Part 1.1b
 const filterTermMatched = course => {
-    // modify this
-    return true;
+    const searchTerm = document.querySelector('#search_term').value;
+    if (course.Title === searchTerm) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 // Part 1.2
@@ -59,34 +63,34 @@ const dataToHTML = course => {
     `;
 }
 
-class CoolArray extends Array {
+// class CoolArray extends Array {
 
-    mapChase(functionToApplyToEachItemOfTheArrayLater) {
-        const copy = [];
-        for (const item of this) {
-            const result = functionToApplyToEachItemOfTheArrayLater(item);
-            copy.push(result);
-        }
-        return copy;
-    }
+//     mapChase(functionToApplyToEachItemOfTheArrayLater) {
+//         const copy = [];
+//         for (const item of this) {
+//             const result = functionToApplyToEachItemOfTheArrayLater(item);
+//             copy.push(result);
+//         }
+//         return copy;
+//     }
 
-    sayHiToHaley() {
-        console.log('Hey Haley!');
-    }
-}
+//     sayHiToHaley() {
+//         console.log('Hey Haley!');
+//     }
+// }
 
-function doubleNumber(num) {
-    return 2 * num;
-}
-function squareNumber(num) {
-    return num * num;
-}
+// function doubleNumber(num) {
+//     return 2 * num;
+// }
+// function squareNumber(num) {
+//     return num * num;
+// }
 
-const testArray = new CoolArray(1, 2, 4, 7, 9, 11);
-console.log(testArray.length);
-console.log(testArray.mapChase(doubleNumber));
-console.log(testArray.mapChase(squareNumber));
-testArray.sayHiToHaley();
+// const testArray = new CoolArray(1, 2, 4, 7, 9, 11);
+// console.log(testArray.length);
+// console.log(testArray.mapChase(doubleNumber));
+// console.log(testArray.mapChase(squareNumber));
+// testArray.sayHiToHaley();
 
 
 
@@ -118,6 +122,7 @@ const showData = (searchTerm, openOnly) => {
     const megaString = listOfHTMLChunks.join('\n');
     console.log(megaString);
 
+    document.querySelector('.courses').innerHTML = "";
     document.querySelector('.courses').insertAdjacentHTML('beforeend', megaString);
 
     // document.querySelector('.courses').insertAdjacentHTML(
