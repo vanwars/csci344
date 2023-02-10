@@ -37,8 +37,13 @@ const filterClassFull = course => {
 
 // Part 1.1b
 const filterTermMatched = course => {
-    const searchTerm = document.querySelector('#search_term').value;
-    if (course.Title === searchTerm) {
+    const searchTerm = document.querySelector('#search_term').value.toLowerCase();
+    const instructorName = course.Instructors[0].Name;
+    
+    if (
+        course.Title.toLowerCase().includes(searchTerm) ||
+        instructorName.toLowerCase().includes(searchTerm)
+    ) {
         return true;
     } else {
         return false;
@@ -122,7 +127,10 @@ const showData = (searchTerm, openOnly) => {
     const megaString = listOfHTMLChunks.join('\n');
     console.log(megaString);
 
+    // clear out the old results:
     document.querySelector('.courses').innerHTML = "";
+    
+    // append the new results:
     document.querySelector('.courses').insertAdjacentHTML('beforeend', megaString);
 
     // document.querySelector('.courses').insertAdjacentHTML(
