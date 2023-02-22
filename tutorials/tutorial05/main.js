@@ -31,8 +31,12 @@ const search = ev => {
 
 // Part 1.1a
 const filterClassFull = course => {
-    // modify this
-    return true;
+    const openOnly = document.querySelector('#is_open').checked;
+    if (openOnly) {
+        return course.Classification.Open;
+    } else {
+        return true;
+    }
 }
 
 // Part 1.1b
@@ -52,18 +56,25 @@ const filterTermMatched = course => {
 
 // Part 1.2
 const dataToHTML = course => {
+    const instructor = course.Instructors[0].Name;
+    let seatsAvailable = Math.max(course.EnrollmentMax - course.EnrollmentCurrent, 0);
+
     // modify this
     return `
         <section class="course">
             <h2>${ course.Code}: ${ course.Title }</h2>
             <p>
-                <i class="fa-solid fa-circle-check"></i> 
-                Open  &bull; 10174 &bull; Seats Available: 1
+                ${
+                    seatsAvailable ? 
+                    `<i class="fa-solid fa-circle-check"></i> Open` :  
+                    `<i class="fa-solid fa-circle-xmark"></i> Closed`
+                }
+                &bull; ${course.CRN} &bull; Seats Available: ${ seatsAvailable }
             </p>
             <p>
-                MWF &bull; ZEI 201 &bull; 3 credit hour(s)
+                ${ course.Days } &bull; ${ course.Location.FullLocation } &bull; ${course.Hours} Credit Hour(s)
             </p>
-            <p><strong>Whitley, Adam</strong></p>
+            <p><strong>${ instructor }</strong></p>
         </section>
     `;
 }
