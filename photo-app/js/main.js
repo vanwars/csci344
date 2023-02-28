@@ -56,7 +56,7 @@ const showPosts = async (token) => {
 //          alert('show modal');
 //      }
 
-window.showModal = () => {
+const showModal = () => {
     alert('show modal');
 }
 
