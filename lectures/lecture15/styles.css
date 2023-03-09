@@ -1,0 +1,6 @@
+.item {
+    display: grid;
+    grid-template-columns: auto 70px;
+    width: 350px;
+    align-items: center;
+}
