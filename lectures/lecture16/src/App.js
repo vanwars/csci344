@@ -46,8 +46,15 @@ export default function App() {
     return (
         <div>
             <Carousel 
-                gallery={galleries[0]}
-                title="My First Carousel" />
+                gallery={galleries[0]} />
+
+            
+            <Carousel 
+                gallery={galleries[1]} />
+
+
+            <Carousel 
+                gallery={galleries[2]} />
         </div>
     )
 }
