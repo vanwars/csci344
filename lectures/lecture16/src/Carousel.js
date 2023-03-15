@@ -1,3 +1,7 @@
+/**
+ * The job of Carousel is to display all of the images in a gallery.
+ */
+
 import React from "react";
 import { useState } from 'react';
 

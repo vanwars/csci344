@@ -16,6 +16,7 @@
 
 import React from "react";
 import Carousel from "./Carousel";
+import Galleries from "./Galleries";
 
 export default function App() {
     const galleries = [
@@ -45,16 +46,9 @@ export default function App() {
 
     return (
         <div>
+            <Galleries galleries={galleries} />
             <Carousel 
                 gallery={galleries[0]} />
-
-            
-            <Carousel 
-                gallery={galleries[1]} />
-
-
-            <Carousel 
-                gallery={galleries[2]} />
         </div>
     )
 }
