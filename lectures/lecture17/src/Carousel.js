@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 
 export default function Carousel({gallery}) {
     console.log(gallery);
+    const [merch, setMerch] = useState([]);
+    const [idx, setIdx] = useState(0);
 
     useEffect(() => {
 
@@ -10,12 +12,12 @@ export default function Carousel({gallery}) {
             const request = await fetch(gallery.endpoint);
             const data = await request.json();
             console.log(data);
+            setMerch(data);
         }
         getMerch();
 
-    }, []);
+    }, [gallery]); // only re-fetch if the gallery has changed
 
-    const [idx, setIdx] = useState(0);
     
     function previous() {
         console.log('previous');
@@ -41,7 +43,11 @@ export default function Carousel({gallery}) {
         <div className="carousel">
 
             <div class="carousel-inner">
-                <img src="https://via.placeholder.com/400/771796" />
+                {
+                    merch.length > 0 ?
+                        <img src={merch[idx].image } />
+                        : ''
+                }
             </div>
 
             <div class="navigation">
