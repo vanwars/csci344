@@ -5,11 +5,13 @@
 
 import React from "react";
 
-export default function Galleries({galleries}) {
+export default function Galleries({galleries, setGalleryIndex}) {
     // some logic at the top:
     console.log(galleries);
 
-
+    function chooseGallery() {
+        console.log("choose new gallery!");
+    }
 
 
     // return some JSX:
@@ -19,7 +21,7 @@ export default function Galleries({galleries}) {
             {
                 galleries.map(gallery => {
                     return (
-                        <button>Click here to show {gallery.name}</button>
+                        <button onClick={chooseGallery}>Click here to show {gallery.name}</button>
                     )
                 })
             }
