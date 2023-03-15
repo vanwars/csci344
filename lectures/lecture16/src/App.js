@@ -57,7 +57,7 @@ export default function App() {
                 galleries={galleries}
                 setGalleryIndex={setGalleryIndex} />
             <Carousel 
-                gallery={galleries[2]} />
+                gallery={galleries[galleryIndex]} />
         </div>
     )
 }

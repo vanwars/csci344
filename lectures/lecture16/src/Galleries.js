@@ -9,8 +9,9 @@ export default function Galleries({galleries, setGalleryIndex}) {
     // some logic at the top:
     console.log(galleries);
 
-    function chooseGallery() {
+    function chooseGallery(idx) {
         console.log("choose new gallery!");
+        setGalleryIndex(idx);
     }
 
 
@@ -19,9 +20,11 @@ export default function Galleries({galleries, setGalleryIndex}) {
         <section>
             <h2>Available Galleries</h2>
             {
-                galleries.map(gallery => {
+                galleries.map((gallery, idx) => {
                     return (
-                        <button onClick={chooseGallery}>Click here to show {gallery.name}</button>
+                        <button onClick={() => {
+                            chooseGallery(idx);
+                        }}>Click here to show {gallery.name}</button>
                     )
                 })
             }
