@@ -1,6 +1,10 @@
 import React from 'react';
 import NavLinks from './NavLinks';
 import Profile from './Profile';
+import Suggestions from './Suggestions';
+import Stories from './Stories';
+import Posts from './Posts';
+
 import { useState, useEffect } from "react";
 import {getHeaders} from './utils';
 
@@ -32,26 +36,13 @@ export default function App ({token}) {
            
            {/* Right Panel */}
             <aside>
-                <Profile profile={profile} />
-                <div className="suggestions">
-                    <div>
-                        Suggestions go here...
-                    </div>
-                </div>
+                {/* <Profile profile={profile} /> */}
+                <Suggestions />
             </aside>
 
             <main>
-
-                {/* Stories */}
-                <header className="stories">
-                    Stories go here...
-                </header>
-
-                {/* Posts */}
-                <div id="posts">
-                    Posts go here...
-                </div>
-
+                <Stories />
+                <Posts token={token} />
             </main>
 
         </div>
