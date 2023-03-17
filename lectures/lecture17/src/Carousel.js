@@ -13,6 +13,7 @@ export default function Carousel({gallery}) {
             const data = await request.json();
             console.log(data);
             setMerch(data);
+            setIdx(0);
         }
         getMerch();
 
@@ -20,13 +21,11 @@ export default function Carousel({gallery}) {
 
     
     function previous() {
-        console.log('previous');
-        setIdx(idx - 1);
+        (idx == 0) ? setIdx(merch.length - 1) : setIdx(idx - 1);
     }
 
     function next() {
-        console.log('next');
-        setIdx(idx + 1);
+        (idx >= merch.length - 1) ? setIdx(0) : setIdx(idx + 1);
     }
 
     // ------------------------------------------------------------
