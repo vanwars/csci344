@@ -19,7 +19,6 @@ export default function Post({post, token}) {
             headers: getHeaders(token)
         });
         const data = await response.json();
-        console.log(data);
         // to make the screen redraw after requerying the post,
         // we need to set a state variable:
         setActualPost(data);
@@ -29,7 +28,7 @@ export default function Post({post, token}) {
     return (
         <section className="card">
             <img src={actualPost.image_url} alt={actualPost.caption} />
-            <div>{actualPost.caption}</div>
+            <p>{actualPost.caption}</p>
             <div className="buttons">
                 <LikeButton 
                     post={actualPost} 

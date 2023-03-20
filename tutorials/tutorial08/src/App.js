@@ -36,7 +36,7 @@ export default function App ({token}) {
            
            {/* Right Panel */}
             <aside>
-                {/* <Profile profile={profile} /> */}
+                <Profile profile={profile} />
                 <Suggestions />
             </aside>
 

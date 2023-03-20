@@ -88,6 +88,17 @@ main {
     min-width: 540px;
 }
 
+.card img {
+    width: 100%;
+}
+
+.card > p, .card .buttons {
+    margin: 5px 10px;
+}
+.card .buttons {
+    margin-bottom: 40px;
+}
+
 
 @media (max-width: 900px) {
     aside {

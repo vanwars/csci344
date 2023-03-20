@@ -12,8 +12,9 @@ export default function Profile({profile}) {
 
     // return some JSX
     if (!profile) {
-        return;
+        return '';
     }
+    
     return (
         <header>
             <img src={profile.thumb_url} />
