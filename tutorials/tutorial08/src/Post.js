@@ -11,7 +11,6 @@ export default function Post({post, token}) {
 
     const [actualPost, setActualPost] = useState(post);
 
-
     async function requeryPost() {
         // get a fresh copy of the post
             const response = await fetch(`/api/posts/${post.id}`, {

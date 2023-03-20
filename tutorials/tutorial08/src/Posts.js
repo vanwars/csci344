@@ -14,7 +14,6 @@ export default function Posts({token}) {
             });
             const data = await response.json();
             setPosts(data);
-            console.log(data);
         }
         fetchPosts();
     }, [token]);
@@ -26,24 +25,15 @@ export default function Posts({token}) {
     return (
         <div id="posts">
             {
-                posts.map(post => <Post key={post.id} post={post} token={token} />)
+                posts.map(post => {
+                    return (
+                        <Post key={post.id} 
+                            post={post} 
+                            token={token} />
+                    )
+                })
             }
         </div>
     );  
-    
-    // return (
-    //     <div id="posts">
-    //         {
-    //             posts.map(post => {
-    //             return (
-    //                 <section key={post.id}>
-    //                     <img src={post.image_url} />
-    //                     <div className="card">{post.caption}</div>
-    //                 </section> 
-    //                 )
-    //             })
-    //         }
-    //     </div>
-    // );
 
 }
