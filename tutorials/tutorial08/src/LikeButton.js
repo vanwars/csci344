@@ -12,6 +12,12 @@ export default function LikeButton({post, token}) {
         // if it's liked, unlike it, else like it
         if (likeId) {
             console.log('unlike!')
+            const response = await fetch(`/api/posts/likes/${likeId}`, {
+                method: "DELETE",
+                headers: getHeaders(token)
+            });
+            const data = await response.json();
+            console.log(data);
         } else {
             // code to like a post:
             console.log('like!')
@@ -28,10 +34,9 @@ export default function LikeButton({post, token}) {
         }
     }
 
-
     // return some JSX:
     return (
-        <button onClick={likeUnlike}>like</button>
+        <button onClick={likeUnlike}>{likeId ? 'unlike' : 'like'}</button>
     )
 
 }
