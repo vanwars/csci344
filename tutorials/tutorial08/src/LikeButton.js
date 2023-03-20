@@ -2,7 +2,7 @@ import React from 'react';
 import {getHeaders} from './utils';
 
 
-export default function LikeButton({post, token}) {
+export default function LikeButton({post, token, requeryPost}) {
     // some logic at the top:
     const likeId = post.current_user_like_id;
     const postId = post.id;
@@ -18,6 +18,7 @@ export default function LikeButton({post, token}) {
             });
             const data = await response.json();
             console.log(data);
+            requeryPost();
         } else {
             // code to like a post:
             console.log('like!')
@@ -31,6 +32,7 @@ export default function LikeButton({post, token}) {
             });
             const data = await response.json();
             console.log(data);
+            requeryPost();
         }
     }
 
