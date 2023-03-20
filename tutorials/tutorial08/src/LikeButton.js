@@ -2,7 +2,7 @@ import React from 'react';
 import {getHeaders} from './utils';
 
 
-export default function LikeButton({post}) {
+export default function LikeButton({post, token}) {
     // some logic at the top:
     const likeId = post.current_user_like_id;
     const postId = post.id;

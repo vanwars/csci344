@@ -26,7 +26,7 @@ export default function Posts({token}) {
     return (
         <div id="posts">
             {
-                posts.map(post => <Post key={post.id} post={post} />)
+                posts.map(post => <Post key={post.id} post={post} token={token} />)
             }
         </div>
     );  

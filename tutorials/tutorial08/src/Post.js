@@ -5,7 +5,7 @@ import React from 'react';
 import LikeButton from './LikeButton';
 
 
-export default function Post({post}) {
+export default function Post({post, token}) {
 
 
    
@@ -15,7 +15,7 @@ export default function Post({post}) {
             <img src={post.image_url} alt={post.caption} />
             <div>{post.caption}</div>
             <div className="buttons">
-                <LikeButton post={post} />
+                <LikeButton post={post} token={token} />
             </div>
         </section> 
     )  
