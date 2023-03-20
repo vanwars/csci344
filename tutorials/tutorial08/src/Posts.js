@@ -22,7 +22,6 @@ export default function Posts({token}) {
     if (posts.length === 0) {
         return <div id="posts"></div>
     }
-
    
     return (
         <div id="posts">
