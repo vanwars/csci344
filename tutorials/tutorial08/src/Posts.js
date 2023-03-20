@@ -1,4 +1,5 @@
 import React from 'react';
+import Post from './Post';
 
 import { useState, useEffect } from "react";
 import {getHeaders} from './utils';
@@ -26,15 +27,24 @@ export default function Posts({token}) {
     return (
         <div id="posts">
             {
-            posts.map(post => {
-                return (
-                    <section key={post.id}>
-                        <img src={post.image_url} />
-                        <div className="card">{post.caption}</div>
-                    </section>
-                )
-            })
-        }
+                posts.map(post => <Post key={post.id} post={post} />)
+            }
         </div>
-    );     
+    );  
+    
+    // return (
+    //     <div id="posts">
+    //         {
+    //             posts.map(post => {
+    //             return (
+    //                 <section key={post.id}>
+    //                     <img src={post.image_url} />
+    //                     <div className="card">{post.caption}</div>
+    //                 </section> 
+    //                 )
+    //             })
+    //         }
+    //     </div>
+    // );
+
 }
