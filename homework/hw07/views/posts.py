@@ -15,7 +15,7 @@ class PostListEndpoint(Resource):
 
     def get(self):
         # get posts created by one of these users:
-        posts = Post.query.limit(10).all()
+        posts = Post.query.limit(5).all()
         return Response(json.dumps([post.to_dict() for post in posts]), mimetype="application/json", status=200)
 
     def post(self):
