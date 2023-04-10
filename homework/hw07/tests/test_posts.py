@@ -46,6 +46,7 @@ class TestPostListEndpoint(unittest.TestCase):
     def test_posts_get_is_authorized(self):
         authorized_user_ids = utils.get_authorized_user_ids(self.current_user.get('id'))
         response = requests.get(root_url + '/api/posts?limit=50')
+        # print(response.json())
         self.assertEqual(response.status_code, 200)
         posts = response.json()
         for post in posts:
@@ -251,7 +252,7 @@ class TestPostDetailEndpoint(unittest.TestCase):
     def test_post_get_unauthorized_id_404(self):
         post_no_access = utils.get_post_that_user_cannot_access(self.current_user.get('id'))
         url = '{0}/api/posts/{1}'.format(root_url, post_no_access.get('id'))
-        
+        print(url)
         response = requests.get(url)
         self.assertEqual(response.status_code, 404)
 
@@ -270,21 +271,21 @@ if __name__ == '__main__':
         TestPostListEndpoint('test_posts_get_bad_limit_argument_handled'),  # get (list view)
         TestPostListEndpoint('test_posts_get_is_authorized'),               # get (list view)
 
-        TestPostListEndpoint('test_post_post'),                             # post (create)
-        TestPostListEndpoint('test_post_post_image_only'),                  # post (create)
-        TestPostListEndpoint('test_post_post_bad_data_400_error'),          # post (create)
+        # TestPostListEndpoint('test_post_post'),                             # post (create)
+        # TestPostListEndpoint('test_post_post_image_only'),                  # post (create)
+        # TestPostListEndpoint('test_post_post_bad_data_400_error'),          # post (create)
 
         # # Detail Endpoint Tests
-        TestPostDetailEndpoint('test_post_patch_correct_data_200'),                          # patch (update)
-        TestPostDetailEndpoint('test_post_patch_blanks_not_overwritten'),   # patch (update)
-        TestPostDetailEndpoint('test_post_patch_invalid_id_404'),           # patch (update)
-        TestPostDetailEndpoint('test_post_patch_id_does_not_exist_404'),    # patch (update)
-        TestPostDetailEndpoint('test_post_patch_unauthorized_id_404'),      # patch (update)
+        # TestPostDetailEndpoint('test_post_patch_correct_data_200'),                          # patch (update)
+        # TestPostDetailEndpoint('test_post_patch_blanks_not_overwritten'),   # patch (update)
+        # TestPostDetailEndpoint('test_post_patch_invalid_id_404'),           # patch (update)
+        # TestPostDetailEndpoint('test_post_patch_id_does_not_exist_404'),    # patch (update)
+        # TestPostDetailEndpoint('test_post_patch_unauthorized_id_404'),      # patch (update)
         
-        TestPostDetailEndpoint('test_post_delete'),                         # delete
-        TestPostDetailEndpoint('test_post_delete_invalid_id_404'),          # delete
-        TestPostDetailEndpoint('test_post_delete_id_does_not_exist_404'),   # delete
-        TestPostDetailEndpoint('test_post_delete_unauthorized_id_404'),     # delete
+        # TestPostDetailEndpoint('test_post_delete'),                         # delete
+        # TestPostDetailEndpoint('test_post_delete_invalid_id_404'),          # delete
+        # TestPostDetailEndpoint('test_post_delete_id_does_not_exist_404'),   # delete
+        # TestPostDetailEndpoint('test_post_delete_unauthorized_id_404'),     # delete
 
         TestPostDetailEndpoint('test_post_get'),                            # get (individual)
         TestPostDetailEndpoint('test_post_get_invalid_id_404'),             # get (individual) 

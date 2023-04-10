@@ -64,6 +64,8 @@ def _create_user():
     provider = profile['mail'].split('@')[1]
     email = '{0}@{1}'.format(username, provider)
     
+    # netstat -vanp tcp | grep 3000
+    # kill -9 pid
     # 2. create a new user (DB object)
     user = User(first_name, last_name, username, email,
         image_url=generate_image(),
