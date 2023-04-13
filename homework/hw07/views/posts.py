@@ -87,8 +87,9 @@ class PostDetailEndpoint(Resource):
 
     @access_utils.can_modify_or_404
     def delete(self, id):
-        # delete post where "id"=id
-        return Response(json.dumps({}), mimetype="application/json", status=200)
+        Post.query.filter_by(id=id).delete()
+        db.session.commit()
+        return Response(json.dumps(None), mimetype="application/json", status=200)
 
     @access_utils.can_view_or_404
     def get(self, id):

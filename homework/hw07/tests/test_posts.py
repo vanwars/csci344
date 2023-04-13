@@ -228,7 +228,7 @@ class TestPostDetailEndpoint(unittest.TestCase):
         
         response = requests.get(url)
         post = response.json()
-        print(post)
+        # print(post)
         self.assertEqual(post_with_access.get('id'), post.get('id'))
         self.assertEqual(post_with_access.get('image_url'), post.get('image_url'))
         self.assertEqual(post_with_access.get('caption'), post.get('caption'))
@@ -253,7 +253,7 @@ class TestPostDetailEndpoint(unittest.TestCase):
     def test_post_get_unauthorized_id_404(self):
         post_no_access = utils.get_post_that_user_cannot_access(self.current_user.get('id'))
         url = '{0}/api/posts/{1}'.format(root_url, post_no_access.get('id'))
-        print(url)
+        # print(url)
         response = requests.get(url)
         self.assertEqual(response.status_code, 404)
 
@@ -283,9 +283,9 @@ if __name__ == '__main__':
         TestPostDetailEndpoint('test_post_patch_id_does_not_exist_404'),    # patch (update)
         TestPostDetailEndpoint('test_post_patch_unauthorized_id_404'),      # patch (update)
         
-        # TestPostDetailEndpoint('test_post_delete'),                         # delete
-        # TestPostDetailEndpoint('test_post_delete_invalid_id_404'),          # delete
-        # TestPostDetailEndpoint('test_post_delete_id_does_not_exist_404'),   # delete
+        TestPostDetailEndpoint('test_post_delete'),                         # delete
+        TestPostDetailEndpoint('test_post_delete_invalid_id_404'),          # delete
+        TestPostDetailEndpoint('test_post_delete_id_does_not_exist_404'),   # delete
         TestPostDetailEndpoint('test_post_delete_unauthorized_id_404'),     # delete
 
         TestPostDetailEndpoint('test_post_get'),                            # get (individual)
