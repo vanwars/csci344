@@ -19,3 +19,7 @@ section {
     padding: 20px;
     border-radius: 6px;
 }
+
+section>ul>li {
+    margin-bottom: 20px;
+}
