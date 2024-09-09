@@ -55,4 +55,10 @@ section>ul>li {
         --global-margin-x: 5vw;
         --global-margin-y: 20px;
     }
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
 }
