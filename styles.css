@@ -2,7 +2,6 @@
 
 :root {
     --global-margin-x: 15vw;
-    --global-margin-y: 50px;
 }
 
 body {
@@ -32,11 +31,11 @@ li {
 
 header {
     background-color: #4B8F8C;
-    padding: var(--global-margin-y) var(--global-margin-x);
+    padding: 20px var(--global-margin-x);
 }
 
 main {
-    margin: var(--global-margin-y) var(--global-margin-x);
+    margin: 50px var(--global-margin-x);
 }
 
 section {
@@ -53,12 +52,17 @@ section>ul>li {
 @media screen and (max-width: 800px) {
     :root {
         --global-margin-x: 5vw;
-        --global-margin-y: 20px;
     }
+
     h1 {
         font-size: 2rem;
     }
+
     h2 {
         font-size: 1.8rem;
+    }
+
+    main {
+        margin: 20px var(--global-margin-x);
     }
 }
