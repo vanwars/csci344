@@ -1,0 +1,16 @@
+/* Font Awesome version  6.2.1 */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
+
+i {
+    font-size: 20px;
+}
+
+#coffee {
+    color: rgb(153, 108, 49);
+    font-size: 200px;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
