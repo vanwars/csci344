@@ -1,18 +1,19 @@
-const defaultTheme = ev => {
+const defaultTheme = (ev) => {
     // your code here.
 };
 
-const oceanTheme = ev => {
-   // your code here.
-};
-
-const desertTheme = ev => {
-   // your code here.
-};
-
-const highContrastTheme = ev => {
+const oceanTheme = (ev) => {
     // your code here.
-}; 
+    document.querySelector("body").className = "ocean";
+};
+
+const desertTheme = (ev) => {
+    // your code here.
+};
+
+const highContrastTheme = (ev) => {
+    // your code here.
+};
 
 /*
     Hints: 
