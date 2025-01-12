@@ -15,9 +15,7 @@ from views import initialize_routes
 app = Flask(__name__)
 
 
-cors = CORS(
-    app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True
-)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DB_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False

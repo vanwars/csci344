@@ -1,1 +1,0 @@
-# Fake website files for practice activity
