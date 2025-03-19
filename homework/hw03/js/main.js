@@ -42,14 +42,36 @@ async function getPosts() {
     renderPosts(data);
 }
 
+function renderBookmarkButton(postJSON) {
+    let template = "";
+    if (postJSON.current_user_bookmark_id) {
+        template = `
+            <button onclick="">
+                <i class="fas fa-bookmark"></i>
+            </button>
+        `;
+    } else {
+        template = `
+            <button onclick="window.createBookmark(${postJSON.id})">
+                <i class="far fa-bookmark"></i>
+            </button>
+        `;
+    }
+    return template;
+}
+
 function renderPost(postJSON) {
     const template = `
         <section class="bg-white border mb-10">
             <div class="p-4 flex justify-between">
-                <h3 class="text-lg font-Comfortaa font-bold">${postJSON.user.username}</h3>
+                <h3 class="text-lg font-Comfortaa font-bold">${
+                    postJSON.user.username
+                }</h3>
                 <button class="icon-button"><i class="fas fa-ellipsis-h"></i></button>
             </div>
-            <img src="${postJSON.image_url}" alt="placeholder image" width="300" height="300"
+            <img src="${
+                postJSON.image_url
+            }" alt="placeholder image" width="300" height="300"
                 class="w-full bg-cover">
             <div class="p-4">
                 <div class="flex justify-between text-2xl mb-3">
@@ -59,7 +81,7 @@ function renderPost(postJSON) {
                         <button><i class="far fa-paper-plane"></i></button>
                     </div>
                     <div>
-                        <button><i class="far fa-bookmark"></i></button>
+                        ${renderBookmarkButton(postJSON)}
                     </div>
                 </div>
                 <p class="font-bold mb-3">${postJSON.likes.length} likes</p>
@@ -95,12 +117,27 @@ function renderPost(postJSON) {
 function renderPosts(postListJSON) {
     // option 1:
     postListJSON.forEach(renderPost);
-
-    // traditional way:
-    // for (const postJSON of postListJSON) {
-    //     renderPost(postJSON);
-    // }
 }
+
+//await / async syntax:
+window.createBookmark = async function (postId) {
+    const postData = {
+        post_id: postId,
+    };
+    const response = await fetch(
+        "https://photo-app-secured.herokuapp.com/api/bookmarks/",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify(postData),
+        }
+    );
+    const data = await response.json();
+    console.log(data);
+};
 
 // after all of the functions are defined, invoke initialize at the bottom:
 initializeScreen();
