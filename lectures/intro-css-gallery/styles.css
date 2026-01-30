@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Your code here */
+
+header {
+    background-color: lightskyblue;
+    padding: 40px;
+}
+
+main {
+    background-color: lightgray;
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    padding: 40px;
+}

@@ -10,6 +10,7 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .navbar a, .navbar strong {
     margin-right: 15px;
 }
@@ -25,6 +26,6 @@ body {
 }
 
 main {
-    padding-right: 10vw;
-    padding-left: 10vw;
+    padding-right: 15vw;
+    padding-left: 15vw;
 }
